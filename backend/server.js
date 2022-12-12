@@ -2,6 +2,7 @@
 
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const {
   deleteUser,
   getUsers,
@@ -9,6 +10,8 @@ const {
   handleFriends,
   updateUser,
 } = require("./handlers");
+
+const PORT = process.env.PORT || 8000;
 
 // placing the users in memory | a poor man's database ;)
 // any changes to the this data will persist only until the server restarts.
@@ -27,6 +30,7 @@ const app = express();
 // Below are methods that are included in express(). We chain them for convenience.
 // --------------------------------------------------------------------------------
 // This will give us will log more info to the console. see https://www.npmjs.com/package/morgan
+app.use(cors({ origin: "" }));
 app.use(morgan("tiny"));
 app.use(express.json());
 
@@ -45,4 +49,4 @@ app.get("*", (req, res) => {
 });
 
 // Node spins up our server and sets it to listen on port 8000.
-app.listen(8000, () => console.log(`Listening on port 8000`));
+app.listen(PORT, () => console.log(`Listening on port 8000`));
