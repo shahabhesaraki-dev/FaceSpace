@@ -6,7 +6,7 @@ export const UserContextProvider = ({ children }) => {
   const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
-    fetch("/api/users")
+    fetch("https://myfacespaceapp.herokuapp.com/api/users")
       .then((users) => {
         return users.json();
       })

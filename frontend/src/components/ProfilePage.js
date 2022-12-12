@@ -12,7 +12,7 @@ const ProfilPage = () => {
   const { profileId } = useParams();
 
   useEffect(() => {
-    fetch(`/api/users/${profileId}`)
+    fetch(`https://myfacespaceapp.herokuapp.com/api/users/${profileId}`)
       .then((user) => user.json())
       .then((result) => {
         setUserById(result.data);
