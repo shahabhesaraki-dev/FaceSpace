@@ -30,7 +30,7 @@ const app = express();
 // Below are methods that are included in express(). We chain them for convenience.
 // --------------------------------------------------------------------------------
 // This will give us will log more info to the console. see https://www.npmjs.com/package/morgan
-app.use(cors({ origin: "" }));
+app.use(cors({ origin: "https://myfacespaceapp.netlify.app" }));
 app.use(morgan("tiny"));
 app.use(express.json());
 
